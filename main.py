@@ -1,7 +1,11 @@
 import os.path
 import consolidate
 
+<<<<<<< Updated upstream
 def TwoPlatesWelding():
+=======
+def Welding():
+>>>>>>> Stashed changes
 
     cwd = os.getcwd()
     # All the data from deck.yaml is now in the following deck variable
@@ -32,6 +36,7 @@ def Printing3D():
     
 
 if __name__ == '__main__':
+<<<<<<< Updated upstream
     print('select Welding or 3Dprinting')
     mode = input()
     if mode == 'Welding':
@@ -39,8 +44,17 @@ if __name__ == '__main__':
     elif mode == '3Dprinting':
         Printing3D()
 
+=======
+    print('select Welding or Printing3D')
+    mode = input()
+    if mode == 'Welding':
+        result=Welding()
+    elif mode == '3Dprinting':
+        serginho()
+        meshserginho=Printing3D()
+>>>>>>> Stashed changes
     else:
-       print("modo desconhecido")
+       print("Error. Unknown mode")
 
 
 # result['meshes'].T
