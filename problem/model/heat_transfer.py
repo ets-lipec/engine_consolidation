@@ -21,3 +21,11 @@ class HeatTransfer:
             return ('Wrong dimension')
         
         return T
+    
+    def convection(self, h, k, T, Tout, sign):
+        
+        # sign = 1 if position(T) > position (Tout)
+        # sign = -1 if position(T) < position (Tout)
+        
+        return(sign*h*(T-Tout)/k)
+        
