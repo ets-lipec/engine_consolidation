@@ -87,4 +87,6 @@ class 3D_Printing:
 #             self.corner = 
 # =============================================================================
 
-            
+    def filament_deposition(self,U,x,y,z):
+        
+        U[]
