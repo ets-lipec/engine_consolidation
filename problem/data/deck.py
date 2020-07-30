@@ -25,9 +25,9 @@ class Deck():
 
     def initialise_variables(self):
         
-        self.type = self.doc["Problem Type"]["Type"]
-        self.dimension = self.doc["Problem Type"]["Dimension"]
-        self.nmaterials = self.doc["Problem Type"]["Number of Materials"]
+        self.type = self.deck.doc["Problem Type"]["Type"]
+        self.dimension = self.deck.doc["Problem Type"]["Dimension"]
+        self.nmaterials = self.deck.doc["Problem Type"]["Number of Materials"]
         
 # =============================================================================
 # # Number of objects
