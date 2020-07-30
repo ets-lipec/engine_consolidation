@@ -1,5 +1,6 @@
 from .problem import *
 
+# Nothing in the main yet
 
 cwd = os.getcwd()
 
