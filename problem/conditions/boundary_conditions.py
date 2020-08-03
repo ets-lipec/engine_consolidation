@@ -30,7 +30,7 @@ class Boundary_Conditions:
         
         # "direction" is a vector which determines in what direction the Neumann condition is applied
         # "position" is the dictionnary below that indicates where the condition is applied
-        position = {'xstart': ,'xend': ,'ystart': ,'yend': 'zstart': ,'zend': }
+        # position = {'xstart': ,'xend': ,'ystart': ,'yend': 'zstart': ,'zend': }
         # value corresponds to "convection" in the 3D printing case
         # dx is the space interval between 2 elements of the vector "position
         
