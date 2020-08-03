@@ -19,7 +19,7 @@ Material1:
 
 Heating plate:
   Density [kg.m-3]: 2210
-  Specific Heat [J.kg-1.K-1]:730
+  Specific Heat [J.kg-1.K-1]: 730
   Thermal Conductivity [W.m-1.K-1]: 1.4
 
 Boundary Conditions:
