@@ -1,6 +1,6 @@
 import numpy as np
 
-class 3D_Printing:
+class Printing_3D:
     
     def __init__(self, deck):
         
@@ -65,7 +65,7 @@ class 3D_Printing:
         if len(filament.shape) == 1:
             
             self.structure1 = filament[1:-1]
-            self.structure0 = np.array((filament[0],filament[-1])
+            self.structure0 = np.array((filament[0],filament[-1]))
             
         elif len(filament.shape) == 2:
         
@@ -87,6 +87,6 @@ class 3D_Printing:
 #             self.corner = 
 # =============================================================================
 
-    def filament_deposition(self,U,x,y,z):
+    # def filament_deposition(self,U,x,y,z):
         
-        U[]
+    #     U[]

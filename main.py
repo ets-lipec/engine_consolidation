@@ -1,4 +1,4 @@
-from .problem import *
+from problem import *
 
 # Nothing in the main yet
 
