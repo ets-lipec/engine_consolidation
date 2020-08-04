@@ -1,6 +1,5 @@
 import yaml, sys
 import os.path
-import numpy as np
 
 class Deck(): 
 
@@ -25,9 +24,9 @@ class Deck():
 
     def initialise_variables(self):
         
-        self.type = self.deck.doc["Problem Type"]["Type"]
-        self.dimension = self.deck.doc["Problem Type"]["Dimension"]
-        self.nmaterials = self.deck.doc["Problem Type"]["Number of Materials"]
+        self.type = self.doc["Problem Type"]["Type"]
+        self.dimension = int(self.doc["Problem Type"]["Dimension"])
+        self.nmaterials = int(self.doc["Problem Type"]["Number of Materials"])
         
 # =============================================================================
 # # Number of objects
