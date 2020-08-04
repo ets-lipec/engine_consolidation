@@ -85,10 +85,3 @@ class Meshing_Layer:
 #             self.edge = 
 #             self.corner = 
 # =============================================================================
-<<<<<<< HEAD:problem/geometry/layer.py
-
-    # def filament_deposition(self,U,x,y,z):
-        
-    #     U[]
-=======
->>>>>>> f6a1073e62d22093dd88e5c3ce1fd65dda7331b6:problem/mesh/meshing_layer.py
