@@ -1,29 +1,29 @@
 import numpy as np
 
-class Printing_3D:
+class Meshing_Layer:
     
-    def __init__(self, deck):
+    def __init__(self, deck, geometry_printing3D):
         
         self.deck = deck
+        self.geometry_printing3D = geometry_printing3D
         self.do_meshing()
         self.structure_filament(self.meshing)
         
     def do_meshing(self):
         
-        self.dimension = self.doc["Problem Type"]["Dimension"]
-        
+       
 # =============================================================================
 # # Number of filaments
 #         
-#         self.nxfil = self.doc["Dimensions"]["Number of filaments"]["Height"]
-#         self.nyfil = self.doc["Dimensions"]["Number of filaments"]["Width"]
-#         self.nzfil = self.doc["Dimensions"]["Number of filaments"]["Length"]
+#         self.nxfil = self.deck.doc["Dimensions"]["Number of filaments"]["Height"]
+#         self.nyfil = self.deck.doc["Dimensions"]["Number of filaments"]["Width"]
+#         self.nzfil = self.deck.doc["Dimensions"]["Number of filaments"]["Length"]
 #         
 # # Number of intervals per filament
 #         
-#         self.ndx = self.doc["Simulation"]["Number of intervals per filament"]["Thickness"]
-#         self.ndy = self.doc["Simulation"]["Number of intervals per filament"]["Width"]
-#         self.ndz = self.doc["Simulation"]["Number of intervals per filament"]["Length"]
+#         self.ndx = self.deck.doc["Simulation"]["Number of intervals per filament"]["Thickness"]
+#         self.ndy = self.deck.doc["Simulation"]["Number of intervals per filament"]["Width"]
+#         self.ndz = self.deck.doc["Simulation"]["Number of intervals per filament"]["Length"]
 #         
 # # Number of elements
 #         
@@ -32,34 +32,33 @@ class Printing_3D:
 #         self.nztot = self.nzob*self.ndz+1
 #         
 # =============================================================================
+
         
-        if self.dimension != 1 or 2 or 3:
+        self.nxfil = int(self.deck.doc["Dimensions"]["Number of filaments"]["Height"])
+        self.ndx = int(self.deck.doc["Simulation"]["Number of intervals per filament"]["Thickness"])
+        self.nxtot = self.nxfil*self.ndx+1
+        self.meshing = np.ones(self.nxtot)
+        self.x = np.linspace(0,self.geometry_printing3D.lenXtot,self.nxtot)
             
-            return ('Wrong dimension')
-        
-        elif self.dimension >= 1:
+        if self.deck.dimension >= 2:
             
-            self.nxfil = self.doc["Dimensions"]["Number of filaments"]["Height"]
-            self.ndx = self.doc["Simulation"]["Number of intervals per filament"]["Thickness"]
-            self.nxtot = self.nxfil*self.ndx+1
-            self.meshing = np.ones(self.nxtot)
-            
-        elif self.dimension >= 2:
-            
-            self.nyfil = self.doc["Dimensions"]["Number of filaments"]["Width"]
-            self.ndy = self.doc["Simulation"]["Number of intervals per filament"]["Width"]
+            self.nyfil = int(self.deck.doc["Dimensions"]["Number of filaments"]["Width"])
+            self.ndy = int(self.deck.doc["Simulation"]["Number of intervals per filament"]["Width"])
             self.nytot = self.nyfil*self.ndy+1
             self.meshing = np.ones((self.nxtot,self.nytot))
+            self.y = np.linspace(0,self.geometry_printing3D.lenYtot,self.nytot)
+            self.Y,self.X = np.meshgrid(self.y,self.x)
             
-        elif self.dimension >= 3:
+        elif self.deck.dimension >= 3:
             
-            self.nzfil = self.doc["Dimensions"]["Number of filaments"]["Length"]
-            self.ndz = self.doc["Simulation"]["Number of intervals per filament"]["Length"]
+            self.nzfil = int(self.deck.doc["Dimensions"]["Number of filaments"]["Length"])
+            self.ndz = int(self.deck.doc["Simulation"]["Number of intervals per filament"]["Length"])
             self.nztot = self.nzfil*self.ndz+1
             self.meshing = np.ones((self.nxtot,self.nytot,self.nztot))
-            
-        return (self.meshing)
-        
+            self.z = np.linspace(0,self.geometry_printing3D.lenZtot,self.nztot)
+            self.Y,self.X,self.Z = np.meshgrid(self.y,self.x,self.z)
+
+                    
     def structure_filament(self,filament):
         
         if len(filament.shape) == 1:
@@ -86,7 +85,10 @@ class Printing_3D:
 #             self.edge = 
 #             self.corner = 
 # =============================================================================
+<<<<<<< HEAD:problem/geometry/layer.py
 
     # def filament_deposition(self,U,x,y,z):
         
     #     U[]
+=======
+>>>>>>> f6a1073e62d22093dd88e5c3ce1fd65dda7331b6:problem/mesh/meshing_layer.py
