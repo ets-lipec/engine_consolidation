@@ -2,6 +2,7 @@ Problem Type:
   Type: "Layers"
   Dimension: 3
   Number of Materials: 1
+  Number of Objects: 3
 
 Material1:
   Mechanical:
@@ -19,18 +20,43 @@ Material1:
 
 Heating plate:
   Density [kg.m-3]: 2210
-  Specific Heat [J.kg-1.K-1]:730
+  Specific Heat [J.kg-1.K-1]: 730
   Thermal Conductivity [W.m-1.K-1]: 1.4
 
 Boundary Conditions:
-  Top:
-    Model: Neumann
-  Bot:
+  Number of boundary conditions: 8
+  BD1:
+    Localisation: Bot
     Model: Dirichlet
-  Side:
+    Value:
+  BD2:
+    Localisation: Top
     Model: Neumann
-  Interlayer:
-    Model: Conduction
+    Value: convection
+  BD3:
+    Localisation: Left
+    Model: Neumann
+    Value: convection
+  BD4:
+    Localisation: Right
+    Model: Neumann
+    Value: convection
+  BD5:
+    Localisation: Front
+    Model: Neumann
+    Value: convection
+  BD6:
+    Localisation: Behind
+    Model: Neumann
+    Value: convection
+  BD7:
+    Localisation: Inside
+    Model: conduction
+    Value:
+  BD8:
+    Localisation: Interlayer
+    Model: conduction
+    Value:
 
 Dimensions:
   Number of Objects:
@@ -46,17 +72,17 @@ Experimental Conditions:
   Extrusion Temperature [K]: 528
   Bed Temperature [K]: 373
   Room Temperature [K]: 368
+  Time between 2 filament depositions [s]: 8.9
+  Vcooling [K.s-1]: 0.5
+  Time before cooling [s]: 60
+  Time after cooling [s]: 60
 
 Simulation:
   Number of intervals per object:
     Thickness: 4
     Width: 6
     Length: 50
-  Time between 2 filament depositions [s]: 8.9
-  Vcooling [K.s-1]: 0.5
-  Time before cooling [s]: 60
-  Time after cooling [s]: 60
-
+  
 Animation:
   Color Map: 'plasma'
   Time Interval: 5
