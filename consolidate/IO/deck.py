@@ -13,7 +13,7 @@ class Deck():
                 ## Container of the tags parsed from the yaml file
                 self.doc = yaml.load(f, Loader=yaml.BaseLoader)
         self.create_folder_structure()
-        self.type=self.doc["Problem Type"]["Type"]
+        self.type=self.doc["Problem Type"]["Name"]
         
         
     def create_folder_structure(self):        
