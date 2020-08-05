@@ -1,57 +1,24 @@
-<<<<<<< HEAD
-from problem import *
+from consolidate import *
 
-# Nothing in the main yet
+
 
 cwd = os.getcwd()
+# All the data from deck.yaml is now in the following deck variable
 
-deck = Deck(cwd + "/deck.yaml")
-=======
-import os.path
-import consolidate
-
-
-def Welding():
+deck = Deck( cwd + "/deck_printing3D.yaml" )
+# deck = Deck( cwd + "/TwoPlates.yaml" )
 
 
-    cwd = os.getcwd()
-    # All the data from deck.yaml is now in the following deck variable
+geometry = Geometry(deck)
 
-    deck = consolidate.Deck( cwd + "/TwoPlatesWelding.yaml" )
-    
-    meshes = consolidate.MeshTwoPlates( deck )
-    
-    model_HT= consolidate.HeatTransfer(deck,meshes)
-    
-    model_IC = consolidate.IntimateContact(meshes,deck)
-    
-    plots = consolidate.PlotsTwoPlates(deck,meshes,meshes.T,meshes.Dic)
-    
-    solves = consolidate.SolvesTwoPlates( deck,model_HT,meshes,plots,model_IC)
-
-    return {'deck':deck, 'meshes': meshes}
-
-def Printing3D():
-        
-
-    deck = directory.Deck( cwd + "/3Dprinting.yaml" )
-        
-    whatever
-    
-    return (something)
- 
-    
-
-if __name__ == '__main__':
-    print('select Welding or 3Dprinting')
-    mode = input()
-    if mode == 'Welding':
-        result=Welding()
-    elif mode == '3Dprinting':
-        Printing3D()
-    else:
-       print("Error. Unknown mode")
+meshes = Meshes( deck,geometry )
 
 
-# result['meshes'].T
->>>>>>> daeb972b8c1141af50b209bdb905d7de053d365e
+model_HT= HeatTransfer(deck,meshes)
+
+# model_IC = IntimateContact(meshes,deck)
+
+# plots=PlotsTwoPlates(deck,meshes,meshes.T,meshes.Dic)
+
+# solves = SolvesTwoPlates( deck,model_HT,meshes,plots,model_IC)
+
