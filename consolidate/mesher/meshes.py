@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 import numpy as np
 
-class MeshTwoPlates():
+class Meshes():
 
     def __init__(self, deck,geometry):
         self.deck = deck
         self.geometry=geometry
-        
+        self.final_meshing()
         
         
         
@@ -152,7 +152,7 @@ class MeshTwoPlates():
             self.ndx = int(self.deck.doc["Simulation"]["Number of intervals per filament"]["Thickness"])
             self.nxtot = self.nxfil*self.ndx+1
             self.meshing = np.ones(self.nxtot)
-            self.x = np.linspace(0,self.geometry_printing3D.lenXtot,self.nxtot)
+            self.x = np.linspace(0,self.geometry.lenXtot,self.nxtot)
                 
             if self.deck.dimension >= 2:
                 
@@ -160,7 +160,7 @@ class MeshTwoPlates():
                 self.ndy = int(self.deck.doc["Simulation"]["Number of intervals per filament"]["Width"])
                 self.nytot = self.nyfil*self.ndy+1
                 self.meshing = np.ones((self.nxtot,self.nytot))
-                self.y = np.linspace(0,self.geometry_printing3D.lenYtot,self.nytot)
+                self.y = np.linspace(0,self.geometry.lenYtot,self.nytot)
                 self.Y,self.X = np.meshgrid(self.y,self.x)
                 
             elif self.deck.dimension >= 3:
@@ -169,7 +169,7 @@ class MeshTwoPlates():
                 self.ndz = int(self.deck.doc["Simulation"]["Number of intervals per filament"]["Length"])
                 self.nztot = self.nzfil*self.ndz+1
                 self.meshing = np.ones((self.nxtot,self.nytot,self.nztot))
-                self.z = np.linspace(0,self.geometry_printing3D.lenZtot,self.nztot)
+                self.z = np.linspace(0,self.geometry.lenZtot,self.nztot)
                 self.Y,self.X,self.Z = np.meshgrid(self.y,self.x,self.z)
     
                         
