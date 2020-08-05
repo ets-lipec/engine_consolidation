@@ -22,8 +22,7 @@ class SolvesTwoPlates:
 # -------------- CALCULATE TEMPERATURE FOR EACH STEP INCREMENT----------             
             self.meshes.T0, self.meshes.T = self.model_HT.do_timestep(self.meshes.T0, self.meshes.T, self.meshes.DiffTotalX, self.meshes.DiffTotalY, self.meshes.Q)
 # -------------- FORCE TEMPERATURE AT THE INTERFACE: ISOTHERMAL CONDITION----------             
-            self.meshes.T[int(self.meshes.ny/2), 1:-1] = self.deck.doc["Processing Parameters"]["Temperature"]
-            self.meshes.T[int(self.meshes.ny/2-1), 1:-1] = self.deck.doc["Processing Parameters"]["Temperature"]
+            self.meshes.T[int(self.meshes.ny1), 1:-1] = self.deck.doc["Processing Parameters"]["Temperature"]
 # -------------- UPDATE T0----------             
             self.meshes.T0=self.meshes.T.copy()
 # -------------- CALCULATE VISCOSITY FOR EACH STEP INCREMENT----------             
